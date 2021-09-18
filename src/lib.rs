@@ -99,6 +99,14 @@ impl Universe {
         self.cells = next;
     }
 
+    pub fn toggle_cell(&mut self, row: u32, col: u32) {
+        let idx = self.get_index(row, col);
+        let mut next = self.cells.clone();
+        let cell = self.cells[idx];
+        next.set(idx, !cell);
+        self.cells = next;
+    }
+
     pub fn render(&self) -> String {
         self.to_string()
     }
