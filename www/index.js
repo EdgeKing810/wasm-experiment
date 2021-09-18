@@ -11,8 +11,12 @@ const DEAD_COLOR = '#FFFFFF';
 const ALIVE_COLOR = '#000000';
 
 const canvas = document.getElementById('game-of-life-canvas');
+const playPauseButton = document.getElementById('play-pause');
+
 canvas.height = (CELL_SIZE + 1) * height + 1;
 canvas.width = (CELL_SIZE + 1) * width + 1;
+
+let isPaused = true;
 
 const ctx = canvas.getContext('2d');
 
@@ -74,6 +78,28 @@ const renderLoop = () => {
   drawCells();
 };
 
+let interval = null;
+
+const play = () => {
+  playPauseButton.textContent = '⏸';
+  isPaused = false;
+  interval = setInterval(() => renderLoop(), 30);
+};
+
+const pause = () => {
+  playPauseButton.textContent = '▶';
+  isPaused = true;
+  clearInterval(interval);
+};
+
+playPauseButton.addEventListener('click', () => {
+  if (isPaused) {
+    play();
+  } else {
+    pause();
+  }
+});
+
 drawGrid();
 drawCells();
-setInterval(() => renderLoop(), 30);
+play();

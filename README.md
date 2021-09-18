@@ -1,6 +1,6 @@
 # Little experiment with Rust 🦀 WASM + JS
 
-![](https://backend.kinesis.games/a403b240-1887-11ec-80ce-b9191fb40fb5-Opera%20Snapshot_2021-09-18_175137_localhost.png)
+![](https://backend.kinesis.games/299df020-188b-11ec-80ce-b9191fb40fb5-Opera%20Snapshot_2021-09-18_175137_localhost.png)
 
 ### Running this demo locally
 
